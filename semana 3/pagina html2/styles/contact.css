@@ -1,0 +1,21 @@
+.pagina-contacto h1 {
+	margin: 8px;
+}
+
+.pagina-contacto a {
+	align-content: left;
+}
+
+.pagina-contacto h2 {
+	margin-bottom: 30px;
+}
+
+.pagina-contacto form h2 {
+	margin-top: 0;
+	margin-bottom: 6px;
+	text-align: center;
+}
+
+.pagina-contacto form {
+	text-align: left;
+}

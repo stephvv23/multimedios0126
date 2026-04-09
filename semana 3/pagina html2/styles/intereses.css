@@ -1,0 +1,20 @@
+.pagina-intereses ol {
+    max-width: 680px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+}
+
+.pagina-intereses p {
+    background: rgba(255, 255, 255, 0.8);
+	border-radius: 14px;
+	padding: 14px 14px;
+}
+
+
+.pagina-intereses li {
+    padding: 6px 6px;
+}
+
+.pagina-intereses img {
+    max-width: min(100%, 600px);
+}

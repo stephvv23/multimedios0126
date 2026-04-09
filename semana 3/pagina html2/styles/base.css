@@ -1,0 +1,95 @@
+:root {
+    --color-principal: rgb(61, 12, 17);
+    --color-acento: #E38792;
+    --color-rosa: #ebb0b7;
+    --color-enlace: #9DAD71;
+    --color-enlace-hover: #4e5a2d;
+    --fondo: #f7f7f7;
+    --borde: #e9e3db;
+}
+
+body.pagina {
+    padding: 24px 24px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: var(--color-principal);
+    background-color: var(--fondo);
+    text-align: center;
+}
+
+p {
+    background: #f1ece5;
+	border-radius: 14px;
+	padding: 14px 14px;
+}
+
+h1, h2, h3 {
+    color: var(--color-principal);
+}
+
+a {
+    color: var(--color-enlace);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-enlace-hover);
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid var(--borde);
+    margin: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px;
+}
+
+th, td {
+    border: 1px solid var(--borde);
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: var(--color-rosa);
+}
+
+form {
+    text-align: left;
+    margin: 12px;
+}
+
+label {
+    margin: 10px;
+    font-weight: 600;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--borde);
+    margin-top: 4px;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+button {
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: var(--color-acento);
+    color: #f7f7f7;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4E0A0B;
+}
