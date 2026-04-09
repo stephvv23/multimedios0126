@@ -19,14 +19,87 @@
     </head>
 
     <body>
-        <header>
+        <header class="bg-info text-black text-center p-3">
             <!-- place navbar here -->
+             <h1>Titulo</h1>
+             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio illo dignissimos corporis velit at vero odit, modi officia odio, ab facilis alias. Libero corrupti perspiciatis architecto explicabo eveniet pariatur rem.</p>
         </header>
-        <main></main>
-        <footer>
-            <!-- place footer here -->
+        <!-- Nav tabs -->
+        <ul
+            class="nav nav-tabs"
+            id="navId"
+            role="tablist"
+        >
+            <li class="nav-item">
+                <a
+                    href="#tab1Id"
+                    class="nav-link active"
+                    data-bs-toggle="tab"
+                    aria-current="page"
+                    >Active</a
+                >
+            </li>
+            <li class="nav-item dropdown">
+                <a
+                    class="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    href="#"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    >Dropdown</a
+                >
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#tab2Id">Action</a>
+                    <a class="dropdown-item" href="#tab3Id">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#tab4Id">Action</a>
+                </div>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="#tab5Id" class="nav-link" data-bs-toggle="tab"
+                    >Another link</a
+                >
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="#" class="nav-link disabled" data-bs-toggle="tab"
+                    >Disabled</a
+                >
+            </li>
+        </ul>
+        
+        <!-- Tab panes -->
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="tab1Id" role="tabpanel">
+                
+            </div>
+            <div class="tab-pane fade" id="tab2Id" role="tabpanel"></div>
+            <div class="tab-pane fade" id="tab3Id" role="tabpanel"></div>
+            <div class="tab-pane fade" id="tab4Id" role="tabpanel"></div>
+            <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
+        </div>
+        
+        <!-- (Optional) - Place this js code after initializing bootstrap.min.js or bootstrap.bundle.min.js -->
+        <script>
+            var triggerEl = document.querySelector("#navId a");
+            bootstrap.Tab.getInstance(triggerEl).show(); // Select tab by name
+        </script>
+        
+        <div class="container bg-secondary text-white p-4 mt-4">
+            <div
+                class="row justify-content-center align-items-center g-2"
+            >
+                <div class="col-lg-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ullam voluptatum a cum! Pariatur nemo esse nihil officiis blanditiis sit tenetur nesciunt placeat ducimus, illo fuga accusantium laboriosam ut unde!</div>
+                <div class="col-lg-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur veniam sint exercitationem quisquam soluta eaque voluptatibus. Earum unde cupiditate hic sint ullam cum sapiente commodi quo, vel inventore ea nostrum!</div>
+            </div>
+            
+        </div>
+        
+        <footer class=" bg-black text-white text-center p-4 mt-2">
+            <p>Multimedios 2026</p>
         </footer>
-        <!-- Bootstrap JavaScript Libraries -->
+        
+
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
