@@ -21,27 +21,112 @@
         <form action="https://paginas-web-cr.com/Api/form/crearcurso.php" method="post">
             <div class="form-group">
                 <label for="Nombre">Nombre</label>
-                <input type="text" class="form-control" placeholder="Nombre">
+                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
             </div>
             <div class="form-group">
                 <label for="descripcion">Descripcion</label>
-                <input type="text-area" class="form-control" placeholder="Descripcion">
+                <input type="text-area" name="descripcion" id="descripcion" class="form-control"
+                    placeholder="Descripcion">
             </div>
             <div class="form-group">
                 <label for="Tiempo">Tiempo (Horas)</label>
-                <input type="number" class="form-control" placeholder="Ej: 1">
+                <input type="number" class="form-control" name="tiempo" id="tiempo" placeholder="Ej: 1">
                 </select>
             </div>
             <div class="form-group">
                 <label for="usuario">Usuario</label>
-                <input type="text" class="form-control" placeholder="Nombre">
-            </div >
+                <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Nombre">
+            </div>
             <div class="form-group">
                 <label for="usuario">ReturnUrl</label>
-                <input type="text" class="form-control" placeholder="http://127.0.0.1:1234/semana%207/form.html">
-            </div >
+                <input type="text" class="form-control" name="return_url" id="return_url"
+                    placeholder="http://127.0.0.1:1234/semana%207/form.html">
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
+<form action="">  //pendiente
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>John</td>
+                <td>Doe</td>
+                <td>@social</td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+        <form action="https://paginas-web-cr.com/Api/form/actualizarcurso.php" method="post">
+            <div class="form-group">
+                <label for="Nombre">Id</label>
+                <input type="text" name="id" id="id" class="form-control" placeholder="id">
+            </div>
+            <div class="form-group">
+                <label for="Nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripcion</label>
+                <input type="text-area" name="descripcion" id="descripcion" class="form-control"
+                    placeholder="Descripcion">
+            </div>
+            <div class="form-group">
+                <label for="Tiempo">Tiempo (Horas)</label>
+                <input type="number" class="form-control" name="tiempo" id="tiempo" placeholder="Ej: 1">
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="usuario">Usuario</label>
+                <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+                <label for="usuario">ReturnUrl</label>
+                <input type="text" class="form-control" name="return_url" id="return_url"
+                    placeholder="http://127.0.0.1:1234/semana%207/form.html">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        
+        <form action="https://paginas-web-cr.com/Api/form/eliminarcurso.php" method="post">
+            <div class="form-group">
+                <label for="Nombre">Id</label>
+                <input type="text" name="id" id="id" class="form-control" placeholder="id">
+            </div>
+            <div class="form-group">
+                <label for="Nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+                <label for="usuario">ReturnUrl</label>
+                <input type="text" class="form-control" name="return_url" id="return_url"
+                    placeholder="http://127.0.0.1:1234/semana%207/form.html">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
 
     </main>
     <footer>
