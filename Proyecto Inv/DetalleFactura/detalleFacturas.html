@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es" data-bs-theme="light">
+
+<head>
+    <title>Gestión de Detalle de Facturas - Academia de Cursos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS v5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+</head>
+
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="../Index.html">
+                <span class="badge bg-primary me-2">ACAD</span>Academia de Cursos
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Cursos/cursos.html">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Usuarios/usuarios.html">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Grupo/grupo.html">Grupos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Facturacion/facturacion.html">Facturación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="detalleFacturas.html">Detalle Factura</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Pago/pago.html">Pagos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="bg-primary text-white py-5">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-2">Gestión de Detalle de Facturas</h1>
+            <p class="lead mb-0">Administra los detalles de las facturas: crear, consultar, actualizar y eliminar</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container py-4">
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="alert alert-info" role="alert">
+                    <strong>ℹ️ Nota:</strong> Todos los formularios se envían directamente al servidor sin JavaScript.
+                    Los datos se procesarán en el backend y serás redirigido nuevamente a esta página.
+                </div>
+            </div>
+        </div>
+
+        <!-- Operations Grid -->
+        <div class="row g-4">
+
+            <!-- 1. CREATE DETALLE FACTURA -->
+            <div class="col-lg-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+                    <span>➕ Crear Detalle de Factura</span>
+                    <span class="badge bg-success">POST</span>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted small mb-3">Completa este formulario para agregar un detalle a una factura.</p>
+                    <form method="POST" action="../../../creardetallfactura.php" class="needs-validation">
+                        <div class="mb-3">
+                            <label for="createInvoiceId" class="form-label">ID de la Factura</label>
+                            <input type="number" class="form-control" id="createInvoiceId" name="invoice_id" placeholder="Ej: 1" required>
+                            <small class="text-muted">Campo requerido</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="createCourseId" class="form-label">ID del Curso</label>
+                            <input type="number" class="form-control" id="createCourseId" name="course_id" placeholder="Ej: 1" required>
+                            <small class="text-muted">Campo requerido</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="createQuantity" class="form-label">Cantidad</label>
+                            <input type="number" class="form-control" id="createQuantity" name="quantity" placeholder="Ej: 1" required>
+                            <small class="text-muted">Campo requerido</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="createPrice" class="form-label">Precio Unitario ($)</label>
+                            <input type="number" class="form-control" id="createPrice" name="unit_price" step="0.01" placeholder="Ej: 299.99" required>
+                            <small class="text-muted">Campo requerido</small>
+                        </div>
+                        <!-- Hidden return URL -->
+                        <input type="hidden" name="return_url" value="detalleFacturas.html">
+                        <button type="submit" class="btn btn-success w-100">
+                            <i class="bi bi-plus-circle"></i> Crear Detalle
+                        </button>
+                    </form>
+                </div>
+            </div>
+            </div>
+
+            <!-- 2. READ DETALLE FACTURA -->
+            <div class="col-lg-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+                    <span>🔍 Consultar Detalle de Factura</span>
+                    <span class="badge bg-info">GET</span>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted small mb-3">Busca un detalle existente por el ID de la factura.</p>
+                    <form method="GET" action="../../../consultardetallefactura.php">
+                        <div class="mb-3">
+                            <label for="searchInvoiceId" class="form-label">ID de la Factura</label>
+                            <input type="number" class="form-control" id="searchInvoiceId" name="invoice_id" placeholder="Ej: 1" required>
+                            <small class="text-muted">Campo requerido</small>
+                        </div>
+                        <button type="submit" class="btn btn-info w-100">
+                            <i class="bi bi-search"></i> Buscar Detalle
+                        </button>
+                    </form>
+                </div>
+            </div>
+            </div>
+
+            <!-- 3. UPDATE DETALLE FACTURA -->
+            <div class="col-lg-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+                    <span>✏️ Actualizar Detalle de Factura</span>
+                    <span class="badge bg-warning text-dark">POST</span>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted small mb-3">Actualiza un detalle existente de una factura usando su ID.</p>
+                    <form method="POST" action="../../../actualizardetallefactura.php">
+                        <div class="mb-3">
+                            <label for="updateId" class="form-label">ID del Detalle</label>
+                            <input type="number" class="form-control" id="updateId" name="id" placeholder="Ej: 1" required>
+                            <small class="text-muted">Campo requerido</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="updateQuantity" class="form-label">Nueva Cantidad</label>
+                            <input type="number" class="form-control" id="updateQuantity" name="quantity" placeholder="Ej: 1" required>
+                            <small class="text-muted">Campo requerido</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="updatePrice" class="form-label">Nuevo Precio Unitario ($)</label>
+                            <input type="number" class="form-control" id="updatePrice" name="unit_price" step="0.01" placeholder="Ej: 299.99" required>
+                            <small class="text-muted">Campo requerido</small>
+                        </div>
+                        <!-- Hidden return URL -->
+                        <input type="hidden" name="return_url" value="detalleFacturas.html">
+                        <button type="submit" class="btn btn-warning w-100">
+                            <i class="bi bi-pencil"></i> Actualizar Detalle
+                        </button>
+                    </form>
+                </div>
+            </div>
+            </div>
+
+            <!-- 4. DELETE DETALLE FACTURA -->
+            <div class="col-lg-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+                    <span>🗑️ Eliminar Detalle de Factura</span>
+                    <span class="badge bg-danger">POST</span>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted small mb-3">Elimina permanentemente un detalle de factura usando su ID.</p>
+                    <form method="POST" action="../../../eliminardetallefactura.php" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este detalle? Esta acción no se puede deshacer.');">
+                        <div class="mb-3">
+                            <label for="deleteId" class="form-label">ID del Detalle</label>
+                            <input type="number" class="form-control" id="deleteId" name="id" placeholder="Ej: 1" required>
+                            <small class="text-muted">Campo requerido</small>
+                        </div>
+                        <!-- Hidden return URL -->
+                        <input type="hidden" name="return_url" value="detalleFacturas.html">
+                        <button type="submit" class="btn btn-danger w-100">
+                            <i class="bi bi-trash"></i> Eliminar Detalle
+                        </button>
+                    </form>
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Academia de Cursos. Módulo de Detalle de Facturas | HTML5 + Bootstrap 5</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <!-- Note: The onsubmit attribute on the delete form uses a native browser confirm dialog -->
+    <!-- This is NOT JavaScript for data handling, only for UX confirmation, as per the native HTML pattern -->
+</body>
+
+</html>

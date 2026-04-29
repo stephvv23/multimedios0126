@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en" data-bs-theme="light">
+<html lang="es" data-bs-theme="light">
 
 <head>
-    <title>Academia de Cursos</title>
+    <title>Academia de Cursos - Sistema de Gestión</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -11,35 +11,157 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
 </head>
 
-<body>
-    <header>
-        <nav>
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Cursos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Grupo/grupo.html">Grupos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Usuarios/usuarios.html">Usuarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link href="Facturacion/facturacion.html">Facturacion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link href="DetalleFactura/detalleFactura.html">Detalle de facturación</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link href="Pago/pago.html">Pagos</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main></main>
-    <footer>
-        <!-- place footer here -->
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="Index.html">
+                <span class="badge bg-primary me-2">ACAD</span>Academia de Cursos
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="Index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Cursos/cursos.html">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Usuarios/usuarios.html">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Grupo/grupo.html">Grupos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Facturacion/facturacion.html">Facturación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="DetalleFactura/detalleFacturas.html">Detalle Factura</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Pago/pago.html">Pagos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-primary text-white py-5 text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Sistema de Gestión</h1>
+            <p class="lead mb-0">Administra usuarios, cursos, grupos, facturas y pagos de forma centralizada</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="mb-4">Módulos Disponibles</h2>
+                <p class="text-muted">Selecciona un módulo para comenzar a gestionar los datos de tu academia</p>
+            </div>
+        </div>
+
+        <!-- Module Grid -->
+        <div class="row g-4">
+            <!-- Usuarios Module -->
+            <div class="col-md-6 col-lg-4">
+                <a href="Usuarios/usuarios.html" class="text-decoration-none link-dark">
+                    <div class="card h-100 shadow-sm border-0 rounded-3">
+                        <div class="card-body text-center p-4">
+                            <div class="fs-1 mb-3">👥</div>
+                            <h5 class="card-title">Usuarios</h5>
+                            <p class="card-text text-muted small">Crea, consulta, actualiza y elimina usuarios del sistema</p>
+                            <span class="badge bg-success">Acceder</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Cursos Module -->
+            <div class="col-md-6 col-lg-4">
+                <a href="Cursos/cursos.html" class="text-decoration-none link-dark">
+                    <div class="card h-100 shadow-sm border-0 rounded-3">
+                        <div class="card-body text-center p-4">
+                            <div class="fs-1 mb-3">📚</div>
+                            <h5 class="card-title">Cursos</h5>
+                            <p class="card-text text-muted small">Gestiona los cursos disponibles en la academia</p>
+                            <span class="badge bg-info">Acceder</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Grupos Module -->
+            <div class="col-md-6 col-lg-4">
+                <a href="Grupo/grupo.html" class="text-decoration-none link-dark">
+                    <div class="card h-100 shadow-sm border-0 rounded-3">
+                        <div class="card-body text-center p-4">
+                            <div class="fs-1 mb-3">👨‍🎓</div>
+                            <h5 class="card-title">Grupos</h5>
+                            <p class="card-text text-muted small">Organiza y administra los grupos de estudiantes</p>
+                            <span class="badge bg-warning text-dark">Acceder</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Facturación Module -->
+            <div class="col-md-6 col-lg-4">
+                <a href="Facturacion/facturacion.html" class="text-decoration-none link-dark">
+                    <div class="card h-100 shadow-sm border-0 rounded-3">
+                        <div class="card-body text-center p-4">
+                            <div class="fs-1 mb-3">💼</div>
+                            <h5 class="card-title">Facturación</h5>
+                            <p class="card-text text-muted small">Crea y gestiona facturas de la academia</p>
+                            <span class="badge bg-danger">Acceder</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Detalle Factura Module -->
+            <div class="col-md-6 col-lg-4">
+                <a href="DetalleFactura/detalleFacturas.html" class="text-decoration-none link-dark">
+                    <div class="card h-100 shadow-sm border-0 rounded-3">
+                        <div class="card-body text-center p-4">
+                            <div class="fs-1 mb-3">📄</div>
+                            <h5 class="card-title">Detalle Factura</h5>
+                            <p class="card-text text-muted small">Administra los detalles de las facturas</p>
+                            <span class="badge bg-primary">Acceder</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Pagos Module -->
+            <div class="col-md-6 col-lg-4">
+                <a href="Pago/pago.html" class="text-decoration-none link-dark">
+                    <div class="card h-100 shadow-sm border-0 rounded-3">
+                        <div class="card-body text-center p-4">
+                            <div class="fs-1 mb-3">💳</div>
+                            <h5 class="card-title">Pagos</h5>
+                            <p class="card-text text-muted small">Registra y controla los pagos de estudiantes</p>
+                            <span class="badge bg-secondary">Acceder</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Academia de Cursos. Sistema de Gestión Modular | Construido con HTML5 y Bootstrap 5</p>
+        </div>
     </footer>
+
     <!-- Bootstrap JavaScript Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
