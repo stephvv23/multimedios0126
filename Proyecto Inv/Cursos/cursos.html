@@ -60,19 +60,18 @@
 
     <!-- Main Content -->
     <main class="container py-4">
-        <div class="row mb-5">
-            <div class="col-lg-10 mx-auto">
-                <div class="alert alert-info" role="alert">
-                    <strong>ℹ️ Nota:</strong> Todos los formularios se envían directamente al servidor sin JavaScript.
-                    Los datos se procesarán en el backend y serás redirigido nuevamente a esta página.
-                </div>
-            </div>
-        </div>
 
         <!-- Operations Grid -->
         <div class="row g-4">
 
+            <!-- 1. CREATE CURSO -->
             <div class="col-lg-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+                    <span>➕ Crear Nuevo Curso</span>
+                    <span class="badge bg-success">POST</span>
+                </div>
+                <div class="card-body">
                     <p class="text-muted small mb-3">Completa este formulario para crear un nuevo curso en la academia.</p>
                     <form method="POST" action="../../../crearcurso.php" class="needs-validation">
                         <div class="mb-3">
@@ -102,6 +101,7 @@
                         </button>
                     </form>
                 </div>
+            </div>
             </div>
             </div>
 
