@@ -50,10 +50,9 @@
     </nav>
 
     <!-- Header Section -->
-    <section class="bg-primary text-white py-5">
+    <section class="bg-secondary text-white py-5">
         <div class="container">
             <h1 class="display-4 fw-bold mb-2">Gestión de Facturación</h1>
-            <p class="lead mb-0">Administra las facturas: crear, consultar, actualizar y eliminar</p>
         </div>
     </section>
 
@@ -65,135 +64,153 @@
 
             <!-- 1. CREATE FACTURA -->
             <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>➕ Crear Nueva Factura</span>
-                    <span class="badge bg-success">POST</span>
+                <div class="card shadow-sm border-0 h-100">
+                    <div
+                        class="card-header bg-success text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span>Crear Nueva Factura</span>
+                        <span class="badge bg-success">POST</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small mb-3">Completa este formulario para crear una nueva factura.</p>
+
+                        <form method="POST" action="https://paginas-web-cr.com/Api/form/crearfactura.php"
+                            class="needs-validation">
+
+                            <div class="mb-3">
+                                <label for="cliente" class="form-label">Ciente</label>
+                                <input type="text" class="form-control" id="cliente" name="cliente"
+                                    placeholder="Ej: cliente" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="userName" class="form-label">Nombre de Usuario</label>
+                                <input type="text" class="form-control" id="usuario" name="usuario"
+                                    placeholder="Ej: Maria" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="userName" class="form-label">Total</label>
+                                <input type="number" class="form-control" id="total" name="total"
+                                    placeholder="Ej: 23" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <!-- Hidden return URL -->
+                            <input type="hidden" name="return_url"
+                                value="http://127.0.0.1:5500/Proyecto%20Inv/Facturacion/facturacion.html">
+                            <button type="submit" class="btn btn-success w-100">
+                                <i class="bi bi-plus-circle"></i> Crear Factura
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Completa este formulario para crear una nueva factura.</p>
-                    <form method="POST" action="../../../crearfactura.php" class="needs-validation">
-                        <div class="mb-3">
-                            <label for="createUserId" class="form-label">ID del Usuario</label>
-                            <input type="number" class="form-control" id="createUserId" name="user_id" placeholder="Ej: 1" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="createAmount" class="form-label">Monto Total ($)</label>
-                            <input type="number" class="form-control" id="createAmount" name="amount" step="0.01" placeholder="Ej: 499.99" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="createDate" class="form-label">Fecha de Facturación</label>
-                            <input type="date" class="form-control" id="createDate" name="invoice_date" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="createStatus" class="form-label">Estado</label>
-                            <select class="form-select" id="createStatus" name="status" required>
-                                <option value="">-- Selecciona un estado --</option>
-                                <option value="pendiente">Pendiente</option>
-                                <option value="pagada">Pagada</option>
-                                <option value="cancelada">Cancelada</option>
-                            </select>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <!-- Hidden return URL -->
-                        <input type="hidden" name="return_url" value="facturacion.html">
-                        <button type="submit" class="btn btn-success w-100">
-                            <i class="bi bi-plus-circle"></i> Crear Factura
-                        </button>
-                    </form>
-                </div>
-            </div>
             </div>
 
             <!-- 2. READ FACTURA -->
             <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>🔍 Consultar Factura</span>
-                    <span class="badge bg-info">GET</span>
+                <div class="card shadow-sm border-0 h-100">
+                    <div
+                        class="card-header bg-info text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span>Consultar Factura</span>
+                        <span class="badge bg-info">GET</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small mb-3">Busca una factura existente por su ID para ver sus detalles.
+                        </p>
+                        <form method="GET" action=" https://paginas-web-cr.com/Api/form/consultarfactura.php">
+                            <div class="mb-3">
+                                <label for="searchId" class="form-label">Cliente</label>
+                                <input type="text" class="form-control" id="cliente" name="cliente"
+                                    placeholder="Ej: cliente" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <input type="hidden" name="return_url"
+                                value="http://127.0.0.1:5500/Proyecto%20Inv/Facturacion/facturacion.html">
+
+                            <button type="submit" class="btn btn-info w-100">
+                                <i class="bi bi-search"></i> Buscar Factura
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Busca una factura existente por su ID para ver sus detalles.</p>
-                    <form method="GET" action="../../../consultarfactura.php">
-                        <div class="mb-3">
-                            <label for="searchId" class="form-label">ID de la Factura</label>
-                            <input type="number" class="form-control" id="searchId" name="id" placeholder="Ej: 1" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <button type="submit" class="btn btn-info w-100">
-                            <i class="bi bi-search"></i> Buscar Factura
-                        </button>
-                    </form>
-                </div>
-            </div>
             </div>
 
             <!-- 3. UPDATE FACTURA -->
             <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>✏️ Actualizar Factura</span>
-                    <span class="badge bg-warning text-dark">POST</span>
+                <div class="card shadow-sm border-0 h-100">
+
+                    <div
+                        class="card-header bg-warning text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span>Actualizar Factura</span>
+                        <span class="badge bg-warning text-dark">POST</span>
+                    </div>
+
+                    <div class="card-body">
+                        <p class="text-muted small mb-3">Actualiza los datos de una factura existente usando su ID.</p>
+
+                        <form method="POST" action="https://paginas-web-cr.com/Api/form/actualizarfactura.php">
+
+                            <div class="mb-3">
+                                <label for="updateId" class="form-label">ID</label>
+                                <input type="number" class="form-control" id="id" name="id" placeholder="Ej: 1"
+                                    required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="updateId" class="form-label">Cliente</label>
+                                <input type="text" class="form-control" id="cliente" name="cliente" placeholder="Ej: cliente"
+                                    required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <!-- Hidden return URL -->
+                            <input type="hidden" name="return_url"
+                                value="http://127.0.0.1:5500/Proyecto%20Inv/Facturacion/facturacion.html">
+                            <button type="submit" class="btn btn-warning w-100">
+                                <i class="bi bi-pencil"></i> Actualizar Factura
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Actualiza los datos de una factura existente usando su ID.</p>
-                    <form method="POST" action="../../../actualizarfactura.php">
-                        <div class="mb-3">
-                            <label for="updateId" class="form-label">ID de la Factura</label>
-                            <input type="number" class="form-control" id="updateId" name="id" placeholder="Ej: 1" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="updateAmount" class="form-label">Nuevo Monto ($)</label>
-                            <input type="number" class="form-control" id="updateAmount" name="amount" step="0.01" placeholder="Ej: 499.99" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="updateStatus" class="form-label">Nuevo Estado</label>
-                            <select class="form-select" id="updateStatus" name="status" required>
-                                <option value="">-- Selecciona un estado --</option>
-                                <option value="pendiente">Pendiente</option>
-                                <option value="pagada">Pagada</option>
-                                <option value="cancelada">Cancelada</option>
-                            </select>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <!-- Hidden return URL -->
-                        <input type="hidden" name="return_url" value="facturacion.html">
-                        <button type="submit" class="btn btn-warning w-100">
-                            <i class="bi bi-pencil"></i> Actualizar Factura
-                        </button>
-                    </form>
-                </div>
-            </div>
             </div>
 
             <!-- 4. DELETE FACTURA -->
             <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>🗑️ Eliminar Factura</span>
-                    <span class="badge bg-danger">POST</span>
+                <div class="card shadow-sm border-0 h-100">
+
+                    <div
+                        class="card-header bg-danger text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span>Eliminar Factura</span>
+                        <span class="badge bg-danger">POST</span>
+                    </div>
+
+                    <div class="card-body">
+
+                        <p class="text-muted small mb-3">Elimina permanentemente una factura del sistema usando su ID.</p>
+
+                        <form method="POST" action="https://paginas-web-cr.com/Api/form/eliminarfactura.php"
+                            onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta factura? Esta acción no se puede deshacer.');">
+                            
+                            <div class="mb-3">
+                                <label for="deleteId" class="form-label">ID de la Factura</label>
+                                <input type="number" class="form-control" id="deleteId" name="id" placeholder="Ej: 1"
+                                    required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+                            
+                            <!-- Hidden return URL -->
+                            <input type="hidden" name="return_url"
+                                value="http://127.0.0.1:5500/Proyecto%20Inv/Facturacion/facturacion.html">
+                            <button type="submit" class="btn btn-danger w-100">
+                                <i class="bi bi-trash"></i> Eliminar Factura
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Elimina permanentemente una factura del sistema usando su ID.</p>
-                    <form method="POST" action="../../../eliminarfactura.php" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta factura? Esta acción no se puede deshacer.');">
-                        <div class="mb-3">
-                            <label for="deleteId" class="form-label">ID de la Factura</label>
-                            <input type="number" class="form-control" id="deleteId" name="id" placeholder="Ej: 1" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <!-- Hidden return URL -->
-                        <input type="hidden" name="return_url" value="facturacion.html">
-                        <button type="submit" class="btn btn-danger w-100">
-                            <i class="bi bi-trash"></i> Eliminar Factura
-                        </button>
-                    </form>
-                </div>
-            </div>
             </div>
 
         </div>
@@ -211,8 +228,6 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
-    <!-- Note: The onsubmit attribute on the delete form uses a native browser confirm dialog -->
-    <!-- This is NOT JavaScript for data handling, only for UX confirmation, as per the native HTML pattern -->
 </body>
 
 </html>

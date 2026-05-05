@@ -50,10 +50,9 @@
     </nav>
 
     <!-- Header Section -->
-    <section class="bg-primary text-white py-5">
+    <section class="bg-secondary text-white py-5">
         <div class="container">
             <h1 class="display-4 fw-bold mb-2">Gestión de Pagos</h1>
-            <p class="lead mb-0">Administra los pagos de los estudiantes: crear, consultar, actualizar y eliminar</p>
         </div>
     </section>
 
@@ -65,148 +64,121 @@
 
             <!-- 1. CREATE PAGO -->
             <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>➕ Registrar Nuevo Pago</span>
-                    <span class="badge bg-success">POST</span>
+                <div class="card shadow-sm border-0 h-100">
+                    <div
+                        class="card-header bg-success text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span>Registrar Nuevo Pago</span>
+                        <span class="badge bg-success">POST</span>
+                    </div>
+
+                    <div class="card-body">
+                        <p class="text-muted small mb-3">Completa este formulario para registrar un nuevo pago.</p>
+
+                        <form method="POST" action="https://paginas-web-cr.com/Api/form/crearpago.php" class="needs-validation">
+
+                            <div class="mb-3">
+                                <label for="createInvoiceId" class="form-label">ID de la Factura</label>
+                                <input type="number" class="form-control" id="id_factura" name="id_factura"
+                                    placeholder="Ej: 1" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="createAmount" class="form-label">Monto Pagado ($)</label>
+                                <input type="number" class="form-control" id="monto" name="monto" step="0.01"
+                                    placeholder="Ej: 299.99" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="createMethod" class="form-label">Método de Pago</label>
+                                <select class="form-select" id="metodo" name="metodo" required>
+                                    <option value="">-- Selecciona un método --</option>
+                                    <option value="tarjeta_credito">Tarjeta de Crédito</option>
+                                    <option value="tarjeta_debito">Tarjeta de Débito</option>
+                                    <option value="transferencia">Transferencia Bancaria</option>
+                                    <option value="efectivo">Efectivo</option>
+                                    <option value="cheque">Cheque</option>
+                                </select>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="createDescription" class="form-label">Descripción</label>
+                                <textarea class="form-control" id="detalle" name="detalle" rows="3"
+                                    placeholder="detalle" required></textarea>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="createTitle" class="form-label">Nombre de usuario</label>
+                                <input type="text" class="form-control" id="usuario" name="usuario"
+                                    placeholder="Ej: Maria" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <!-- Hidden return URL -->
+                            <input type="hidden" name="return_url"
+                                value="http://127.0.0.1:5500/Proyecto%20Inv/Pago/pago.html">
+                            <button type="submit" class="btn btn-success w-100">
+                                <i class="bi bi-plus-circle"></i> Registrar Pago
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Completa este formulario para registrar un nuevo pago.</p>
-                    <form method="POST" action="../../../crearpago.php" class="needs-validation">
-                        <div class="mb-3">
-                            <label for="createInvoiceId" class="form-label">ID de la Factura</label>
-                            <input type="number" class="form-control" id="createInvoiceId" name="invoice_id" placeholder="Ej: 1" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="createAmount" class="form-label">Monto Pagado ($)</label>
-                            <input type="number" class="form-control" id="createAmount" name="amount" step="0.01" placeholder="Ej: 299.99" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="createPaymentDate" class="form-label">Fecha de Pago</label>
-                            <input type="date" class="form-control" id="createPaymentDate" name="payment_date" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="createMethod" class="form-label">Método de Pago</label>
-                            <select class="form-select" id="createMethod" name="payment_method" required>
-                                <option value="">-- Selecciona un método --</option>
-                                <option value="tarjeta_credito">Tarjeta de Crédito</option>
-                                <option value="tarjeta_debito">Tarjeta de Débito</option>
-                                <option value="transferencia">Transferencia Bancaria</option>
-                                <option value="efectivo">Efectivo</option>
-                                <option value="cheque">Cheque</option>
-                            </select>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <!-- Hidden return URL -->
-                        <input type="hidden" name="return_url" value="pago.html">
-                        <button type="submit" class="btn btn-success w-100">
-                            <i class="bi bi-plus-circle"></i> Registrar Pago
-                        </button>
-                    </form>
-                </div>
-            </div>
             </div>
 
-            <!-- 2. READ PAGO -->
+            <!-- 2. UPDATE PAGO -->
             <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>🔍 Consultar Pago</span>
-                    <span class="badge bg-info">GET</span>
-                </div>
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Busca un pago existente por su ID para ver sus detalles.</p>
-                    <form method="GET" action="../../../consultarpago.php">
-                        <div class="mb-3">
-                            <label for="searchId" class="form-label">ID del Pago</label>
-                            <input type="number" class="form-control" id="searchId" name="id" placeholder="Ej: 1" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <button type="submit" class="btn btn-info w-100">
-                            <i class="bi bi-search"></i> Buscar Pago
-                        </button>
-                    </form>
-                </div>
-            </div>
-            </div>
+                <div class="card shadow-sm border-0 h-100">
+                    <div
+                        class="card-header bg-warning text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span>Actualizar Pago</span>
+                        <span class="badge bg-warning text-dark">POST</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small mb-3">Actualiza un pago existente usando su ID.</p>
 
-            <!-- 3. UPDATE PAGO -->
-            <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>✏️ Actualizar Pago</span>
-                    <span class="badge bg-warning text-dark">POST</span>
-                </div>
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Actualiza un pago existente usando su ID.</p>
-                    <form method="POST" action="../../../actualizarpago.php">
-                        <div class="mb-3">
-                            <label for="updateId" class="form-label">ID del Pago</label>
-                            <input type="number" class="form-control" id="updateId" name="id" placeholder="Ej: 1" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="updateAmount" class="form-label">Nuevo Monto ($)</label>
-                            <input type="number" class="form-control" id="updateAmount" name="amount" step="0.01" placeholder="Ej: 299.99" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="updatePaymentDate" class="form-label">Nueva Fecha de Pago</label>
-                            <input type="date" class="form-control" id="updatePaymentDate" name="payment_date" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="updateMethod" class="form-label">Nuevo Método de Pago</label>
-                            <select class="form-select" id="updateMethod" name="payment_method" required>
-                                <option value="">-- Selecciona un método --</option>
-                                <option value="tarjeta_credito">Tarjeta de Crédito</option>
-                                <option value="tarjeta_debito">Tarjeta de Débito</option>
-                                <option value="transferencia">Transferencia Bancaria</option>
-                                <option value="efectivo">Efectivo</option>
-                                <option value="cheque">Cheque</option>
-                            </select>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <!-- Hidden return URL -->
-                        <input type="hidden" name="return_url" value="pago.html">
-                        <button type="submit" class="btn btn-warning w-100">
-                            <i class="bi bi-pencil"></i> Actualizar Pago
-                        </button>
-                    </form>
-                </div>
-            </div>
-            </div>
+                        <form method="POST" action="https://paginas-web-cr.com/Api/form/actualizarpago.php">
 
-            <!-- 4. DELETE PAGO -->
-            <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>🗑️ Eliminar Pago</span>
-                    <span class="badge bg-danger">POST</span>
-                </div>
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Elimina permanentemente un pago del sistema usando su ID.</p>
-                    <form method="POST" action="../../../eliminarpago.php" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este pago? Esta acción no se puede deshacer.');">
-                        <div class="mb-3">
-                            <label for="deleteId" class="form-label">ID del Pago</label>
-                            <input type="number" class="form-control" id="deleteId" name="id" placeholder="Ej: 1" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <!-- Hidden return URL -->
-                        <input type="hidden" name="return_url" value="pago.html">
-                        <button type="submit" class="btn btn-danger w-100">
-                            <i class="bi bi-trash"></i> Eliminar Pago
-                        </button>
-                    </form>
-                </div>
-            </div>
-            </div>
+                            <div class="mb-3">
+                                <label for="updateId" class="form-label">ID del Pago</label>
+                                <input type="number" class="form-control" id="id" name="id" placeholder="Ej: 1"
+                                    required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
 
-        </div>
-    </main>
+                            <div class="mb-3">
+                                <label for="createTitle" class="form-label">Estado</label>
+                                <input type="text" class="form-control" id="estado" name="estado"
+                                    placeholder="Ej: pago" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="createTitle" class="form-label">Fecha</label>
+                                <input type="date" class="form-control" id="fecha" name="fecha"
+                                    placeholder="Ej: 23/03/2009" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="createDescription" class="form-label">Descripción</label>
+                                <textarea class="form-control" id="detalle" name="detalle" rows="3"
+                                    placeholder="detalle" required></textarea>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <!-- Hidden return URL -->
+                            <input type="hidden" name="return_url"
+                                value="http://127.0.0.1:5500/Proyecto%20Inv/Pago/pago.html">
+                            <button type="submit" class="btn btn-warning w-100">
+                                <i class="bi bi-pencil"></i> Actualizar Pago
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4 mt-5">
@@ -220,8 +192,6 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="awesome"></script>
 
-    <!-- Note: The onsubmit attribute on the delete form uses a native browser confirm dialog -->
-    <!-- This is NOT JavaScript for data handling, only for UX confirmation, as per the native HTML pattern -->
 </body>
 
 </html>
