@@ -12,11 +12,11 @@
 </head>
 
 <body class="bg-light">
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="../Index.html">
-                <span class="badge bg-primary me-2">ACAD</span>Academia de Cursos
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,10 +51,9 @@
     </nav>
 
     <!-- Header Section -->
-    <section class="bg-primary text-white py-5">
+    <section class="bg-secondary text-white py-5">
         <div class="container">
             <h1 class="display-4 fw-bold mb-2">Gestión de Usuarios</h1>
-            <p class="lead mb-0">Administra los usuarios del sistema: crear, consultar, actualizar y eliminar</p>
         </div>
     </section>
 
@@ -66,120 +65,167 @@
 
             <!-- 1. CREATE USUARIO -->
             <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>➕ Crear Nuevo Usuario</span>
-                    <span class="badge bg-success">POST</span>
+
+                <div class="card shadow-sm border-0 h-100">
+                    <div
+                        class="card-header bg-success text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span>Crear Nuevo Usuario</span>
+                        <span class="badge bg-success">POST</span>
+                    </div>
+
+                    <div class="card-body">
+
+                        <p class="text-muted small mb-3">Completa este formulario para crear un nuevo usuario en el
+                            sistema.</p>
+
+                        <form method="POST" action="https://paginas-web-cr.com/Api/form/crearusuario.php"
+                            class="needs-validation">
+
+                            <div class="mb-3">
+                                <label for="createName" class="form-label">Nombre Completo</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Ej: Juan Pérez" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="createEmail" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="usuario@academia.com" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="createPassword" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Mínimo 8 caracteres" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <!-- Hidden return URL -->
+                            <input type="hidden" name="return_url"
+                                value="http://127.0.0.1:5500/Proyecto%20Inv/Usuarios/usuarios.html">
+                            <button type="submit" class="btn btn-success w-100">
+                                <i class="bi bi-plus-circle"></i> Crear Usuario
+                            </button>
+                        </form>
+
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Completa este formulario para crear un nuevo usuario en el sistema.</p>
-                    <form method="POST" action="../../../crearusuario.php" class="needs-validation">
-                        <div class="mb-3">
-                            <label for="createName" class="form-label">Nombre Completo</label>
-                            <input type="text" class="form-control" id="createName" name="name" placeholder="Ej: Juan Pérez" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="createEmail" class="form-label">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="createEmail" name="email" placeholder="usuario@academia.com" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="createPassword" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="createPassword" name="password" placeholder="Mínimo 8 caracteres" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <!-- Hidden return URL -->
-                        <input type="hidden" name="return_url" value="usuarios.html">
-                        <button type="submit" class="btn btn-success w-100">
-                            <i class="bi bi-plus-circle"></i> Crear Usuario
-                        </button>
-                    </form>
-                </div>
-            </div>
             </div>
 
             <!-- 2. READ USUARIO -->
             <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>🔍 Consultar Usuario</span>
-                    <span class="badge bg-info">GET</span>
+                <div class="card shadow-sm border-0 h-100">
+                    <div
+                        class="card-header bg-info text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span>Consultar Usuario</span>
+                        <span class="badge bg-info">GET</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small mb-3">Busca un usuario existente por su nombre para ver sus detalles.
+                        </p>
+
+                        <form method="GET" action="https://paginas-web-cr.com/Api/form/consultarusuario.php">
+
+                            <div class="mb-3">
+                                <label for="searchName" class="form-label">Nombre del Usuario</label>
+                                <input type="text" class="form-control" id="searchName" name="name"
+                                    placeholder="Ej: Juan Pérez" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <input type="hidden" name="return_url"
+                                value="http://127.0.0.1:5500/Proyecto%20Inv/Usuarios/usuarios.html">
+
+                            <button type="submit" class="btn btn-info w-100">
+                                <i class="bi bi-search"></i> Buscar Usuario
+                            </button>
+                        </form>
+
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Busca un usuario existente por su nombre para ver sus detalles.</p>
-                    <form method="GET" action="../../../consultarusuario.php">
-                        <div class="mb-3">
-                            <label for="searchName" class="form-label">Nombre del Usuario</label>
-                            <input type="text" class="form-control" id="searchName" name="name" placeholder="Ej: Juan Pérez" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <button type="submit" class="btn btn-info w-100">
-                            <i class="bi bi-search"></i> Buscar Usuario
-                        </button>
-                    </form>
-                </div>
-            </div>
             </div>
 
             <!-- 3. UPDATE USUARIO -->
             <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>✏️ Actualizar Usuario</span>
-                    <span class="badge bg-warning text-dark">POST</span>
+                <div class="card shadow-sm border-0 h-100">
+                    <div
+                        class="card-header bg-warning text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span>Actualizar Usuario</span>
+                        <span class="badge bg-warning text-dark">POST</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small mb-3">Actualiza los datos de un usuario existente usando su ID.</p>
+
+                        <form method="POST" action="https://paginas-web-cr.com/Api/form/actualizarusuario.php">
+
+                            <div class="mb-3">
+                                <label for="updateId" class="form-label">ID del Usuario</label>
+                                <input type="number" class="form-control" id="id" name="id" placeholder="Ej: 1"
+                                    required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="updateName" class="form-label">Nuevo Nombre</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Ej: Juan Pérez" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="updatePassword" class="form-label">Nueva Contraseña</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Nueva contraseña" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <!-- Hidden return URL -->
+                            <input type="hidden" name="return_url"
+                                value="http://127.0.0.1:5500/Proyecto%20Inv/Usuarios/usuarios.html">
+
+                            <button type="submit" class="btn btn-warning w-100">
+                                <i class="bi bi-pencil"></i> Actualizar Usuario
+                            </button>
+
+                        </form>
+
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Actualiza los datos de un usuario existente usando su ID.</p>
-                    <form method="POST" action="../../../actualizarusuario.php">
-                        <div class="mb-3">
-                            <label for="updateId" class="form-label">ID del Usuario</label>
-                            <input type="number" class="form-control" id="updateId" name="id" placeholder="Ej: 1" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="updateName" class="form-label">Nuevo Nombre</label>
-                            <input type="text" class="form-control" id="updateName" name="name" placeholder="Ej: Juan Pérez" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="updatePassword" class="form-label">Nueva Contraseña</label>
-                            <input type="password" class="form-control" id="updatePassword" name="password" placeholder="Nueva contraseña" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <!-- Hidden return URL -->
-                        <input type="hidden" name="return_url" value="usuarios.html">
-                        <button type="submit" class="btn btn-warning w-100">
-                            <i class="bi bi-pencil"></i> Actualizar Usuario
-                        </button>
-                    </form>
-                </div>
-            </div>
             </div>
 
             <!-- 4. DELETE USUARIO -->
             <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
-                <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>🗑️ Eliminar Usuario</span>
-                    <span class="badge bg-danger">POST</span>
+                <div class="card shadow-sm border-0 h-100">
+                    <div
+                        class="card-header bg-danger text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span>Eliminar Usuario</span>
+                        <span class="badge bg-danger">POST</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small mb-3">Elimina permanentemente un usuario del sistema usando su ID.
+                        </p>
+
+                        <form method="POST" action="https://paginas-web-cr.com/Api/form/eliminarusuario.php"
+                            onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario? Esta acción no se puede deshacer.');">
+                            <div class="mb-3">
+                                <label for="deleteId" class="form-label">ID del Usuario</label>
+                                <input type="number" class="form-control" id="deleteId" name="id" placeholder="Ej: 1"
+                                    required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <!-- Hidden return URL -->
+                            <input type="hidden" name="return_url"
+                                value="http://127.0.0.1:5500/Proyecto%20Inv/Usuarios/usuarios.html">
+                            <button type="submit" class="btn btn-danger w-100">
+                                <i class="bi bi-trash"></i> Eliminar Usuario
+                            </button>
+                        </form>
+
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Elimina permanentemente un usuario del sistema usando su ID.</p>
-                    <form method="POST" action="../../../eliminarusuario.php" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este usuario? Esta acción no se puede deshacer.');">
-                        <div class="mb-3">
-                            <label for="deleteId" class="form-label">ID del Usuario</label>
-                            <input type="number" class="form-control" id="deleteId" name="id" placeholder="Ej: 1" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-                        <!-- Hidden return URL -->
-                        <input type="hidden" name="return_url" value="usuarios.html">
-                        <button type="submit" class="btn btn-danger w-100">
-                            <i class="bi bi-trash"></i> Eliminar Usuario
-                        </button>
-                    </form>
-                </div>
-            </div>
             </div>
 
         </div>
@@ -197,8 +243,6 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
-    <!-- Note: The onsubmit attribute on the delete form uses a native browser confirm dialog -->
-    <!-- This is NOT JavaScript for data handling, only for UX confirmation, as per the native HTML pattern -->
 </body>
 
 </html>

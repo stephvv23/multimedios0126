@@ -16,7 +16,6 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="../Index.html">
-                <span class="badge bg-primary me-2">ACAD</span>Academia de Cursos
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,7 +68,7 @@
                 <div class="card shadow-sm border-0 h-100">
 
                     <div
-                        class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+                        class="card-header bg-success text-white fw-bold d-flex justify-content-between align-items-center">
                         <span>Crear Nuevo Curso</span>
                         <span class="badge bg-success">POST</span>
                     </div>
@@ -121,136 +120,137 @@
 
                 </div>
             </div>
-        </div>
-        </div>
 
-        <!-- 2. READ CURSO -->
-        <div class="col-lg-6">
+            <!-- 2. UPDATE CURSO -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div
+                        class="card-header bg-warning text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span>Actualizar Curso</span>
+                        <span class="badge bg-warning text-dark">POST</span>
+                    </div>
+                    <div class="card-body">
 
-            <div class="card shadow-sm border-0 h-100">
+                        <p class="text-muted small mb-3">Actualiza los datos de un curso existente usando su ID.</p>
 
-                <div
-                    class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+                        <form method="POST" action="https://paginas-web-cr.com/Api/form/actualizarcurso.php">
 
-                    <span>Consultar Curso</span>
-                    <span class="badge bg-info">GET</span>
+                            <div class="mb-3">
+                                <label for="updateId" class="form-label">ID del Curso</label>
+                                <input type="number" class="form-control" id="id" name="id" placeholder="Ej: 1"
+                                    required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
 
-                </div>
+                            <div class="mb-3">
+                                <label for="updateTitle" class="form-label">Nuevo Título</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre"
+                                    placeholder="Ej: Programación Web Avanzada" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
 
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Busca un curso existente por su título para ver sus detalles.</p>
-                    <form method="GET" action="https://paginas-web-cr.com/Api/form/consultarcurso.php">
+                            <div class="mb-3">
+                                <label for="updateDescription" class="form-label">Nueva Descripción</label>
+                                <textarea class="form-control" id="descripcion" name="descripcion" rows="2"
+                                    required></textarea>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="searchTitle" class="form-label">Título del Curso</label>
-                            <input type="text" class="form-control" id="searchTitle" name="title"
-                                placeholder="Ej: Programación Web" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
+                            <div class="mb-3">
+                                <label for="createDuration" class="form-label">Nueva Duración (horas)</label>
+                                <input type="number" class="form-control" id="tiempo" name="tiempo" placeholder="Ej: 40"
+                                    required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
 
-                        <button type="submit" class="btn btn-info w-100">
-                            <i class="bi bi-search"></i> Buscar Curso
-                        </button>
+                            <div class="mb-3">
+                                <label for="createTitle" class="form-label">Nuevo Nombre de usuario</label>
+                                <input type="text" class="form-control" id="usuario" name="usuario"
+                                    placeholder="Ej: Maria" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
 
-                    </form>
-                </div>
+                            <!-- Hidden return URL -->
+                            <input type="hidden" name="return_url"
+                                value="http://127.0.0.1:5500/Proyecto%20Inv/Cursos/cursos.html">
 
-            </div>
-        </div>
-
-        <!-- 3. UPDATE CURSO -->
-        <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
-                <div
-                    class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>Actualizar Curso</span>
-                    <span class="badge bg-warning text-dark">POST</span>
-                </div>
-                <div class="card-body">
-
-                    <p class="text-muted small mb-3">Actualiza los datos de un curso existente usando su ID.</p>
-
-                    <form method="POST" action="https://paginas-web-cr.com/Api/form/actualizarcurso.php">
-
-                        <div class="mb-3">
-                            <label for="updateId" class="form-label">ID del Curso</label>
-                            <input type="number" class="form-control" id="id" name="id" placeholder="Ej: 1" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="updateTitle" class="form-label">Nuevo Título</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre"
-                                placeholder="Ej: Programación Web Avanzada" required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="updateDescription" class="form-label">Nueva Descripción</label>
-                            <textarea class="form-control" id="descripcion" name="descripcion" rows="2"
-                                required></textarea>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="createDuration" class="form-label">Nueva Duración (horas)</label>
-                            <input type="number" class="form-control" id="tiempo" name="tiempo" placeholder="Ej: 40"
-                                required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="createTitle" class="form-label">Nuevo Nombre de usuario</label>
-                            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ej: Maria"
-                                required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
-
-                        <!-- Hidden return URL -->
-                        <input type="hidden" name="return_url" value="http://127.0.0.1:5500/Proyecto%20Inv/Cursos/cursos.html">
-
-                        <button type="submit" class="btn btn-warning w-100">
-                            <i class="bi bi-pencil"></i> Actualizar Curso
-                        </button>
-                    </form>
+                            <button type="submit" class="btn btn-warning w-100">
+                                <i class="bi bi-pencil"></i> Actualizar Curso
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 4. DELETE CURSO -->
-        <div class="col-lg-6">
-            <div class="card shadow-sm border-0 h-100">
+            <!-- 3. READ CURSO -->
+            <div class="col-lg-6">
 
-                <div
-                    class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
-                    <span>Eliminar Curso</span>
-                    <span class="badge bg-danger">POST</span>
-                </div>
+                <div class="card shadow-sm border-0 h-100">
 
-                <div class="card-body">
-                    <p class="text-muted small mb-3">Elimina permanentemente un curso del sistema usando su ID.</p>
+                    <div
+                        class="card-header bg-info text-white fw-bold d-flex justify-content-between align-items-center">
 
-                    <form method="POST" action="https://paginas-web-cr.com/Api/form/eliminarcurso.php"
-                        onsubmit="return confirm('¿Estás seguro de que deseas eliminar este curso? Esta acción no se puede deshacer.');">
-                        
-                        <div class="mb-3">
-                            <label for="deleteId" class="form-label">ID del Curso</label>
-                            <input type="number" class="form-control" id="id" name="id" placeholder="Ej: 1"
-                                required>
-                            <small class="text-muted">Campo requerido</small>
-                        </div>
+                        <span>Consultar Curso</span>
+                        <span class="badge bg-info">GET</span>
 
-                        <!-- Hidden return URL -->
-                        <input type="hidden" name="return_url" value="http://127.0.0.1:5500/Proyecto%20Inv/Cursos/cursos.html">
-                        
-                        <button type="submit" class="btn btn-danger w-100">
-                            <i class="bi bi-trash"></i> Eliminar Curso
-                        </button>
+                    </div>
 
-                    </form>
+                    <div class="card-body">
+                        <p class="text-muted small mb-3">Busca un curso existente por su título para ver sus detalles.
+                        </p>
+                        <form method="GET" action="https://paginas-web-cr.com/Api/form/consultarcurso.php">
+
+                            <div class="mb-3">
+                                <label for="searchTitle" class="form-label">Título del Curso</label>
+                                <input type="text" class="form-control" id="searchTitle" name="title"
+                                    placeholder="Ej: Programación Web" required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <button type="submit" class="btn btn-info w-100">
+                                <i class="bi bi-search"></i> Buscar Curso
+                            </button>
+
+                        </form>
+                    </div>
+
                 </div>
             </div>
-        </div>
+            <!-- 4. DELETE CURSO -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100">
+
+                    <div
+                        class="card-header bg-danger text-white fw-bold d-flex justify-content-between align-items-center">
+                        <span>Eliminar Curso</span>
+                        <span class="badge bg-danger">POST</span>
+                    </div>
+
+                    <div class="card-body">
+                        <p class="text-muted small mb-3">Elimina permanentemente un curso del sistema usando su ID.</p>
+
+                        <form method="POST" action="https://paginas-web-cr.com/Api/form/eliminarcurso.php"
+                            onsubmit="return confirm('¿Estás seguro de que deseas eliminar este curso? Esta acción no se puede deshacer.');">
+
+                            <div class="mb-3">
+                                <label for="deleteId" class="form-label">ID del Curso</label>
+                                <input type="number" class="form-control" id="id" name="id" placeholder="Ej: 1"
+                                    required>
+                                <small class="text-muted">Campo requerido</small>
+                            </div>
+
+                            <!-- Hidden return URL -->
+                            <input type="hidden" name="return_url"
+                                value="http://127.0.0.1:5500/Proyecto%20Inv/Cursos/cursos.html">
+
+                            <button type="submit" class="btn btn-danger w-100">
+                                <i class="bi bi-trash"></i> Eliminar Curso
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </main>
