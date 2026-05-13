@@ -10,23 +10,23 @@ class Biblioteca {
   }
 
   get nombre() {
-    return this.nombre;
+    return this._nombre;
   }
   get sede() {
-    return this.sede;
+    return this._sede;
   }
   get numero() {
-    return this.numero;
+    return this._numero;
   }
 
   set nombre(nombre) {
-    this.nombre = nombre;
+    this._nombre = nombre;
   }
   set sede(sede) {
-    this.sede = sede;
+    this._sede = sede;
   }
   set numero(numero) {
-    this.numero = numero;
+    this._numero = numero;
   }
 
 }
