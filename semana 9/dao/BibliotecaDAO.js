@@ -18,14 +18,12 @@ class BibliotecaDAO {
   }
 
   actualizar(id, nuevaBiblioteca) {
-    this.arregloBiblioteca.push(nuevaBiblioteca);
+    let elementoBiblioteca = this.consultraID(id);
 
-    let elementoBibliotec = this.consultaraID(id);
-
-    if (elementoBibliotec) {
-      elementoBibliotec.nombre = nuevaBiblioteca.nombre;
-      elementoBibliotec.sede = nuevaBiblioteca.sede;
-      elementoBibliotec.numero = nuevaBiblioteca.numero;
+    if (elementoBiblioteca) {
+      elementoBiblioteca.nombre = nuevaBiblioteca.nombre;
+      elementoBiblioteca.sede = nuevaBiblioteca.sede;
+      elementoBiblioteca.numero = nuevaBiblioteca.numero;
     }
 
     //En el desarrollo moderno, se recomienda usar const por defecto,
@@ -34,11 +32,13 @@ class BibliotecaDAO {
   }
 
   eliminar(id) {
-    let elementoBibliotec = this.consultaraID(id);
-    if (elementoBibliotec) {
+    let elementoBiblioteca = this.consultaraID(id);
+    if (elementoBiblioteca) {
       this.arregloBiblioteca = this.arregloBiblioteca.filter(
         (p) => p.id !== id,
       );
     }
   }
 }
+
+export default BibliotecaDAO;

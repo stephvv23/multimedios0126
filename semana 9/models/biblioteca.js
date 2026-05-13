@@ -30,3 +30,5 @@ class Biblioteca {
   }
 
 }
+
+export default Biblioteca;
