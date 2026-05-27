@@ -1,0 +1,139 @@
+# Sistema de Administración Hotelera - Hotel Manager Pro
+# Archivos a ignorar en git
+
+# ===================
+# ENTORNO LOCAL
+# ===================
+.env
+.env.local
+.env.*.local
+config.local.js
+
+# ===================
+# IDE / EDITOR
+# ===================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# ===================
+# DEPENDENCIAS
+# ===================
+node_modules/
+npm-debug.log
+npm-debug.log.*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===================
+# COMPILACIÓN Y BUILDS
+# ===================
+dist/
+build/
+*.min.js
+*.min.css
+.cache/
+
+# ===================
+# TESTING
+# ===================
+coverage/
+.nyc_output/
+*.lcov
+
+# ===================
+# LOGS
+# ===================
+logs/
+*.log
+
+# ===================
+# SISTEMA OPERATIVO
+# ===================
+Thumbs.db
+.directory
+.AppleDouble
+@eaDir
+
+# ===================
+# ARCHIVOS TEMPORALES
+# ===================
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+
+# ===================
+# DATOS LOCALES (NO SINCRONIZAR)
+# ===================
+data/
+*.json.bak
+database.json
+
+# ===================
+# ARCHIVOS DE DESARROLLO
+# ===================
+.debug
+debug.js
+test-data.json
+mock-api.js
+
+# ===================
+# CONFIGURACIÓN PRIVADA
+# ===================
+secrets.json
+.api-keys
+credentials.json
+private/
+
+# ===================
+# COMPILADOS DE SASS
+# ===================
+*.css.map
+*.scss.bak
+
+# ===================
+# ARCHIVOS PESADOS (opcional compartir)
+# ===================
+assets/videos/
+assets/audios/
+backups/
+
+# ===================
+# UNIT TESTS LOCALES
+# ===================
+.mocha
+.jest/
+test-results/
+
+# ===================
+# NO SINCRONIZAR ARCHIVOS DE CONFIGURACIÓN PERSONAL
+# ===================
+.eslintcache
+.prettiercache
+
+# ===================
+# COPIAS DE SEGURIDAD
+# ===================
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.backup
+backup-*
+
+# NO IGNORAR MÁS (ARCHIVOS IMPORTANTES)
+# !.gitkeep
+# !README.md
+# !.example.env
