@@ -1,0 +1,42 @@
+/* Estilos personalizados para la Calculadora */
+body {
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+}
+
+.calculator {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.calculator-screen {
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    word-break: break-all;
+}
+
+#operation-history {
+    min-height: 24px;
+    letter-spacing: 1px;
+}
+
+#current-output {
+    letter-spacing: 1px;
+}
+
+/* Efectos de transición en botones para una UI más moderna */
+.btn {
+    transition: all 0.1s ease-in-out;
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Ajuste específico para el botón de igual de alto doble */
+#btn-equals {
+    font-size: 1.5rem;
+}
