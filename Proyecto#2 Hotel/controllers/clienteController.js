@@ -1,8 +1,26 @@
+/**
+ * clienteController.js
+ *
+ * Documentación (ES):
+ * Controlador de la interfaz para gestionar clientes.
+ * - Importa las funciones CRUD desde `api.js`.
+ * - Se encarga de validar formularios, renderizar la tabla de clientes,
+ *   y enlazar botones/acciones del DOM con llamadas a la API.
+ *
+ * Workflow resumido:
+ * Usuario -> vista HTML -> eventos -> funciones en este archivo -> llamadas a `api.js` -> respuesta -> actualizar UI
+ */
+
 import {
   getClientes, getClienteById, getClienteByNombre,
   createCliente, updateCliente, deleteCliente
 } from "./api.js";
 
+/**
+ * Muestra una alerta en la zona `alertZone` del DOM.
+ * @param {string} msg - Mensaje HTML o texto a mostrar
+ * @param {string} [type=success] - Tipo de bootstrap alert (success, warning, danger)
+ */
 function showAlert(msg, type = "success") {
   document.getElementById("alertZone").innerHTML = `
     <div class="alert alert-${type} alert-dismissible fade show" role="alert">
@@ -10,12 +28,19 @@ function showAlert(msg, type = "success") {
     </div>`;
 }
 
+/**
+ * Limpia los campos del formulario de cliente y resetea el botón guardar.
+ */
 function clearForm() {
   ["clienteId","nombre","apellidos","identificacion","telefono","correo","usuario"]
     .forEach(id => { const el = document.getElementById(id); if (el) el.value = ""; });
   document.getElementById("btnSave").textContent = "Guardar";
 }
 
+/**
+ * Valida campos obligatorios del formulario de cliente.
+ * @returns {boolean} true si válido
+ */
 function validateForm() {
   const required = ["nombre","apellidos","identificacion","correo","usuario"];
   for (const id of required) {
@@ -57,6 +82,9 @@ function renderTable(list) {
     </tr>`).join("");
 }
 
+/**
+ * Carga la lista de clientes desde la API y la renderiza.
+ */
 async function loadClientes() {
   try {
     const res = await getClientes();
@@ -64,6 +92,10 @@ async function loadClientes() {
   } catch (e) { showAlert("Error al cargar clientes: " + e.message, "danger"); }
 }
 
+/**
+ * Envía los datos del formulario para crear o actualizar un cliente.
+ * Realiza validación previa y actualiza la tabla al finalizar.
+ */
 async function saveCliente() {
   if (!validateForm()) return;
   const id = document.getElementById("clienteId").value;

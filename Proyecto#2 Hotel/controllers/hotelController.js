@@ -1,3 +1,11 @@
+/**
+ * hotelController.js
+ *
+ * Documentación (ES):
+ * Controlador para la gestión de hoteles: listado, búsqueda, creación, edición y desactivación.
+ * Interactúa con `api.js` y actualiza elementos del DOM (formularios y tablas).
+ */
+
 import {
   getHoteles, getHotelById, getHotelByNombre,
   createHotel, updateHotel, deleteHotel
@@ -5,6 +13,9 @@ import {
 
 // ── Helpers ───────────────────────────────────────────────
 
+/**
+ * Muestra una alerta en la zona `alertZone`.
+ */
 function showAlert(msg, type = "success") {
   const zone = document.getElementById("alertZone");
   zone.innerHTML = `
@@ -14,6 +25,9 @@ function showAlert(msg, type = "success") {
     </div>`;
 }
 
+/**
+ * Activa/desactiva estado de carga (bloquea botón guardar).
+ */
 function setLoading(on) {
   document.getElementById("btnSave").disabled = on;
 }

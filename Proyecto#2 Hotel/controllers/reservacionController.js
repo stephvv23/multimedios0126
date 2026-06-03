@@ -1,3 +1,11 @@
+/**
+ * reservacionController.js
+ *
+ * Documentación (ES):
+ * Controlador para gestionar reservaciones: validar fechas, verificar claves foráneas
+ * (cliente, habitación), y orquestar operaciones CRUD mediante `api.js`.
+ */
+
 import {
   getReservaciones, getReservacionById,
   createReservacion, updateReservacion, deleteReservacion
@@ -5,6 +13,9 @@ import {
 import { getClienteById }    from "./api.js";
 import { getHabitacionById } from "./api.js";
 
+/**
+ * Muestra una alerta en `alertZone`.
+ */
 function showAlert(msg, type = "success") {
   document.getElementById("alertZone").innerHTML = `
     <div class="alert alert-${type} alert-dismissible fade show" role="alert">
@@ -12,6 +23,9 @@ function showAlert(msg, type = "success") {
     </div>`;
 }
 
+/**
+ * Resetea el formulario de reservación y remueve clases de validación.
+ */
 function clearForm() {
   ["reservacionId","id_cliente","id_habitacion","fecha_entrada","fecha_salida",
    "cantidad_personas","total","usuario"]
@@ -22,6 +36,10 @@ function clearForm() {
   document.getElementById("btnSave").textContent = "Guardar";
 }
 
+/**
+ * Valida campos obligatorios y consistencia de fechas (entrada < salida).
+ * @returns {boolean}
+ */
 function validateForm() {
   const required = ["id_cliente","id_habitacion","fecha_entrada","fecha_salida","usuario"];
   for (const id of required) {
@@ -37,7 +55,13 @@ function validateForm() {
   return true;
 }
 
-// Returns true if the record exists, false + inline error if not
+/**
+ * Verifica que una clave foránea exista usando la función `fetchFn` provista.
+ * @param {string} inputId - id del input en el DOM que contiene el valor a verificar
+ * @param {Function} fetchFn - función que consulta la API (ej. getClienteById)
+ * @param {string} label - etiqueta amigable para mensajes de error
+ * @returns {Promise<boolean>}
+ */
 async function verifyForeignKey(inputId, fetchFn, label) {
   const input = document.getElementById(inputId);
   const val   = input?.value.trim();

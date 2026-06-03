@@ -1,8 +1,19 @@
+/**
+ * sedeController.js
+ *
+ * Documentación (ES):
+ * Controlador para la gestión de sedes (filiales): valida formulario, renderiza tabla
+ * y llama a `api.js` para operaciones CRUD.
+ */
+
 import {
   getSedes, getSedeById, getSedeByNombre,
   createSede, updateSede, deleteSede
 } from "./api.js";
 
+/**
+ * Inserta una alerta en `alertZone`.
+ */
 function showAlert(msg, type = "success") {
   document.getElementById("alertZone").innerHTML = `
     <div class="alert alert-${type} alert-dismissible fade show" role="alert">

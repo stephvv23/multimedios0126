@@ -1,9 +1,21 @@
+/**
+ * pagoController.js
+ *
+ * Documentación (ES):
+ * Controlador responsable de la gestión de pagos relacionados con reservaciones.
+ * - Valida formulario, verifica existencia de la reservación (FK) antes de enviar
+ *   y muestra la tabla de pagos.
+ */
+
 import {
   getPagos, getPagoById,
   createPago, updatePago, deletePago
 } from "./api.js";
 import { getReservacionById } from "./api.js";
 
+/**
+ * Muestra una alerta en `alertZone`.
+ */
 function showAlert(msg, type = "success") {
   document.getElementById("alertZone").innerHTML = `
     <div class="alert alert-${type} alert-dismissible fade show" role="alert">
@@ -11,6 +23,9 @@ function showAlert(msg, type = "success") {
     </div>`;
 }
 
+/**
+ * Limpia el formulario de pago y estado de validación de campos.
+ */
 function clearForm() {
   ["pagoId","id_reservacion","monto","metodo","detalle","fecha_pago","usuario"]
     .forEach(id => {
@@ -34,6 +49,10 @@ function validateForm() {
 }
 
 // Verify the reservacion FK exists before hitting the DB
+/**
+ * Verifica que la reservación referenciada exista antes de crear un pago.
+ * Devuelve true si existe, false y marca el campo en rojo si no.
+ */
 async function verifyReservacion() {
   const input = document.getElementById("id_reservacion");
   const val   = input?.value.trim();

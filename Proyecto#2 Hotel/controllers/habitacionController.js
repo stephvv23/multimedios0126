@@ -1,8 +1,20 @@
+/**
+ * habitacionController.js
+ *
+ * Documentación (ES):
+ * Controlador para gestionar habitaciones (crear, editar, listar, desactivar).
+ * - Valida formulario, renderiza tabla y coordina llamadas a `api.js`.
+ * - Usa `estadoBadge` para representar visualmente el estado de la habitación.
+ */
+
 import {
   getHabitaciones, getHabitacionById, getHabitacionByNombre,
   createHabitacion, updateHabitacion, deleteHabitacion
 } from "./api.js";
 
+/**
+ * Muestra una alerta en `alertZone`.
+ */
 function showAlert(msg, type = "success") {
   document.getElementById("alertZone").innerHTML = `
     <div class="alert alert-${type} alert-dismissible fade show" role="alert">
@@ -10,12 +22,19 @@ function showAlert(msg, type = "success") {
     </div>`;
 }
 
+/**
+ * Resetea el formulario de habitación.
+ */
 function clearForm() {
   ["habitacionId","id_sede","numero","tipo","precio","capacidad","descripcion","usuario"]
     .forEach(id => { const el = document.getElementById(id); if (el) el.value = ""; });
   document.getElementById("btnSave").textContent = "Guardar";
 }
 
+/**
+ * Valida los campos obligatorios del formulario de habitación.
+ * @returns {boolean}
+ */
 function validateForm() {
   const required = ["id_sede","numero","tipo","precio","usuario"];
   for (const id of required) {

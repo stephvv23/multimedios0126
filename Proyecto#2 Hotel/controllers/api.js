@@ -1,7 +1,33 @@
+/**
+ * controllers/api.js
+ *
+ * Documentación (ES):
+ * Módulo responsable de centralizar las llamadas HTTP a la API remota.
+ * - `BASE_URL` define la raíz del endpoint.
+ * - `request()` hace `fetch` y normaliza el manejo de errores y respuestas JSON.
+ *
+ * Workflow:
+ * 1) Los controladores de la UI (por ejemplo `hotelController.js`) importan funciones desde este archivo.
+ * 2) Cada función exportada corresponde a un recurso (hotel, sede, habitacion, cliente, reservacion, pago)
+ *    y utiliza `request()` con el método HTTP adecuado (GET, POST, PUT, DELETE).
+ * 3) `request()` lanza una excepción en caso de error HTTP; los controladores deben capturarla
+ *    y mostrar mensajes al usuario.
+ *
+ * Nota: Las funciones exportadas devuelven la respuesta parseada como JSON (promesa).
+ */
+
 const BASE_URL = "https://paginas-web-cr.com/Api/hotelApi";
 
 const JSON_HEADERS = { "Content-Type": "application/json" };
 
+/**
+ * Realiza una petición HTTP y devuelve el body parseado como JSON.
+ * @param {string} url - URL completa de la petición
+ * @param {string} [method=GET] - Método HTTP
+ * @param {Object|null} [body=null] - Payload que será convertido a JSON (para POST/PUT/DELETE)
+ * @throws {Error} Si la respuesta HTTP no es OK, lanza con el mensaje devuelto por la API o el código
+ * @returns {Promise<Object>} Resultado parseado como JSON (ej. { data: ..., message: ... })
+ */
 async function request(url, method = "GET", body = null) {
   const options = { method, headers: JSON_HEADERS };
   if (body) options.body = JSON.stringify(body);
