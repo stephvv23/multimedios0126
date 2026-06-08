@@ -28,7 +28,7 @@ function showAlert(msg, type = "success") {
  */
 function clearForm() {
   ["reservacionId","id_cliente","id_habitacion","fecha_entrada","fecha_salida",
-   "cantidad_personas","total","usuario"]
+   "cantidad_personas","total","usuario","estado"]
     .forEach(id => {
       const el = document.getElementById(id);
       if (el) { el.value = ""; el.classList.remove("is-valid","is-invalid"); }
@@ -84,11 +84,11 @@ async function verifyForeignKey(inputId, fetchFn, label) {
 
 function estadoBadge(estado) {
   const color = {
-    "Activa":      "success",
-    "Confirmada":  "primary",
-    "Cancelada":   "danger",
-    "Completada":  "info",
-    "Pendiente":   "warning",
+    "confirmada": "success",  "Confirmada":  "success",
+    "cancelada":  "danger",   "Cancelada":   "danger",
+    "pendiente":  "warning",  "Pendiente":   "warning",
+    "Activa":     "success",
+    "Completada": "info",
   };
   return `<span class="badge bg-${color[estado] ?? "secondary"}">${estado ?? ""}</span>`;
 }
@@ -147,6 +147,7 @@ async function saveReservacion() {
     fecha_entrada: document.getElementById("fecha_entrada").value,
     fecha_salida:  document.getElementById("fecha_salida").value,
     usuario:       document.getElementById("usuario").value.trim(),
+    estado:        document.getElementById("estado").value,
     ...(cantRaw  ? { cantidad_personas: Number(cantRaw) }            : {}),
     ...(totalRaw ? { total: parseFloat(Number(totalRaw).toFixed(2)) } : {}),
   };
@@ -173,6 +174,7 @@ window.editReservacion = async function(id) {
     document.getElementById("cantidad_personas").value = r.cantidad_personas ?? "";
     document.getElementById("total").value             = r.total ?? "";
     document.getElementById("usuario").value           = r.usuario ?? "";
+    document.getElementById("estado").value            = r.estado ?? "";
     document.getElementById("btnSave").textContent     = "Actualizar";
     document.getElementById("reservacionForm").scrollIntoView({ behavior: "smooth" });
   } catch (e) { showAlert("Error al cargar reservación: " + e.message, "danger"); }

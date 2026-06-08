@@ -27,7 +27,7 @@ function showAlert(msg, type = "success") {
  * Limpia el formulario de pago y estado de validación de campos.
  */
 function clearForm() {
-  ["pagoId","id_reservacion","monto","metodo","detalle","fecha_pago","usuario"]
+  ["pagoId","id_reservacion","monto","metodo","detalle","fecha_pago","usuario","estado"]
     .forEach(id => {
       const el = document.getElementById(id);
       if (el) { el.value = ""; el.classList.remove("is-valid","is-invalid"); }
@@ -73,9 +73,9 @@ async function verifyReservacion() {
 
 function estadoBadge(estado) {
   const color = {
-    "Pendiente":  "warning",
-    "Completado": "success",
-    "Anulado":    "danger",
+    "pendiente":  "warning",  "Pendiente":  "warning",
+    "rechazado":  "danger",   "Rechazado":  "danger",   "Anulado": "danger",
+    "pagado":     "secondary","Pagado":     "secondary","Completado": "success",
     "Activo":     "success",
   };
   return `<span class="badge bg-${color[estado] ?? "secondary"}">${estado ?? ""}</span>`;
@@ -133,6 +133,7 @@ async function savePago() {
     detalle:        document.getElementById("detalle").value.trim(),
     fecha_pago:     document.getElementById("fecha_pago").value,
     usuario:        document.getElementById("usuario").value.trim(),
+    estado:         document.getElementById("estado").value,
   };
   try {
     document.getElementById("btnSave").disabled = true;
@@ -154,6 +155,7 @@ window.editPago = async function(id) {
     document.getElementById("detalle").value        = p.detalle ?? "";
     document.getElementById("fecha_pago").value     = toDateInput(p.fecha_pago);
     document.getElementById("usuario").value        = p.usuario ?? "";
+    document.getElementById("estado").value         = p.estado ?? "";
     document.getElementById("btnSave").textContent  = "Actualizar";
     document.getElementById("pagoForm").scrollIntoView({ behavior: "smooth" });
   } catch (e) { showAlert("Error al cargar pago: " + e.message, "danger"); }

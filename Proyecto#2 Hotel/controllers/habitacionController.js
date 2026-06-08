@@ -26,7 +26,7 @@ function showAlert(msg, type = "success") {
  * Resetea el formulario de habitación.
  */
 function clearForm() {
-  ["habitacionId","id_sede","numero","tipo","precio","capacidad","descripcion","usuario"]
+  ["habitacionId","id_sede","numero","tipo","precio","capacidad","descripcion","usuario","estado"]
     .forEach(id => { const el = document.getElementById(id); if (el) el.value = ""; });
   document.getElementById("btnSave").textContent = "Guardar";
 }
@@ -46,7 +46,12 @@ function validateForm() {
 }
 
 function estadoBadge(estado) {
-  const color = { "Disponible": "success", "Ocupada": "danger", "Mantenimiento": "warning", "Inactivo": "secondary" };
+  const color = {
+    "disponible": "success",  "Disponible": "success",
+    "ocupada":    "danger",   "Ocupada":    "danger",
+    "mantenimiento": "secondary", "Mantenimiento": "secondary",
+    "Inactivo":   "secondary",
+  };
   return `<span class="badge bg-${color[estado] ?? "secondary"}">${estado ?? ""}</span>`;
 }
 
@@ -96,6 +101,7 @@ async function saveHabitacion() {
     capacidad:   Number(document.getElementById("capacidad").value) || 1,
     descripcion: document.getElementById("descripcion").value.trim(),
     usuario:     document.getElementById("usuario").value.trim(),
+    estado:      document.getElementById("estado").value,
   };
   try {
     document.getElementById("btnSave").disabled = true;
@@ -120,6 +126,7 @@ window.editHabitacion = async function(id) {
     document.getElementById("capacidad").value     = h.capacidad ?? "";
     document.getElementById("descripcion").value   = h.descripcion ?? "";
     document.getElementById("usuario").value       = h.usuario ?? "";
+    document.getElementById("estado").value        = h.estado ?? "";
     document.getElementById("btnSave").textContent = "Actualizar";
     document.getElementById("habitacionForm").scrollIntoView({ behavior: "smooth" });
   } catch (e) { showAlert("Error al cargar habitación: " + e.message, "danger"); }
